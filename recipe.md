@@ -25,33 +25,43 @@ focus on the details you see as important, not everything. The diagram below
 uses asciiflow.com but you could also use excalidraw.com, draw.io, or miro.com_
 
 ```
-
-
-
-┌────────────────────────────┐
-│ MusicPlayer                │
-│                            │
-│ - add(track)               │
-│ - all                      │
-│ - search_by_title(keyword) │
-│   => [tracks...]           │
-└───────────┬────────────────┘
-            │
-            │ owns a list of
-            ▼
-┌─────────────────────────┐
-│ Track(title, artist)    │
-│                         │
-│ - title                 │
-│ - artist                │
-│ - format                │
-│   => "TITLE by ARTIST"  │
-└─────────────────────────┘
+https://www.icloud.com/freeform/0bb4KGvWwF8hJIhvWCe27Skpg#GS4_-_Solo_project_diagram
 ```
 
 _Also design the interface of each class in more detail._
 
 ```ruby
+class Menu
+  def initialize
+    @menu = create
+  end
+
+  def create
+    # load menu from file and assign to @menu
+  end
+
+  def show
+    # returns a list of menu items and prices
+  end
+
+end
+
+class MenuItem
+  def initialize
+    @menu_items = {} # {description: price} – imported from a menu CSV file
+  end
+
+  def description
+    # returns item description as a string
+  end
+
+  def price
+    # returns price as a float
+  end
+
+
+end
+
 class Order
   def initialize
      # ...
@@ -65,22 +75,6 @@ class Order
     Receipt.print(@order_items)
   end
 
-
-end
-
-class Menu
-  def initialize
-    @menu_items = {...}
-  end
-
-  def item_price(item)
-    return @menu_items[item][price]
-  end
-
-
-end
-
-class MenuItem
 
 end
 
@@ -105,13 +99,10 @@ combinations that reflect the ways in which the system will be used._
 ```ruby
 # EXAMPLE
 
-# Gets all tracks
-library = MusicLibrary.new
-track_1 = Track.new("Carte Blanche", "Veracocha")
-track_2 = Track.new("Synaesthesia", "The Thrillseekers")
-library.add(track_1)
-library.add(track_2)
-library.all # => [track_1, track_2]
+# Creates menu
+menu = Menu.new
+expect(menu).to be
+
 ```
 
 ## 4. Create Examples as Unit Tests
