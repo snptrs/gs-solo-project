@@ -24,4 +24,8 @@ class Menu
     puts "\n"
   end
 
+  def choose(item)
+    @menu[item.to_i - 1]
+  end
+
 end

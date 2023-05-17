@@ -1,6 +1,9 @@
 require_relative 'menu'
 
 class Interaction
+  def initialize
+    @menu = Menu.new
+  end
   def user_input
     puts "What would you like to do?"
     puts "1. See the menu"
@@ -16,3 +19,6 @@ class Interaction
     end
   end
 end
+
+interaction = Interaction.new
+interaction.user_input
