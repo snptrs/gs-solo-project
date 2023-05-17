@@ -17,12 +17,11 @@ class Menu
   end
 
   def show
+    puts "\n===MENU==="
     @menu.each_with_index do |item, i|
-      puts "#{i + 1}. #{item.description} – #{item.price}"
+      puts "#{i + 1}. #{item.description} – £#{item.price}"
     end
+    puts "\n"
   end
 
 end
-
-menu = Menu.new
-menu.show
