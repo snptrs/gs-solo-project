@@ -1,17 +1,20 @@
 require 'csv'
-require_relative 'menu_item.rb'
+require_relative 'menu_item'
 
 class Menu
   def initialize
     @menu = []
-    create
   end
 
-  def create
+  def add_item(description, price)
+    menu_item = MenuItem.new(description, price)
+    @menu << menu_item
+  end
+
+  def load_file
     File.open('menu_items.csv', 'r') do |file|
       CSV.foreach(file) do |row|
-        menu_item = MenuItem.new(row[0], row[1])
-        @menu << menu_item
+        menu_item = add_item(row[0], row[1])
       end
     end
   end

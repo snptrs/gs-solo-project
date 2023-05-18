@@ -31,6 +31,12 @@ https://www.icloud.com/freeform/0bb4KGvWwF8hJIhvWCe27Skpg#GS4_-_Solo_project_dia
 _Also design the interface of each class in more detail._
 
 ```ruby
+class Interaction
+  def initialize
+
+  end
+end
+
 class Menu
   def initialize
     @menu = create

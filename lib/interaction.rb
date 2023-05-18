@@ -20,5 +20,8 @@ class Interaction
   end
 end
 
+menu = Menu.new
+menu.create
+
 interaction = Interaction.new
 interaction.user_input
