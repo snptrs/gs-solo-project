@@ -1,6 +1,6 @@
 require_relative 'menu'
 
-class Interaction
+class App
   def initialize
     @menu = Menu.new
   end
@@ -23,5 +23,5 @@ end
 menu = Menu.new
 menu.create
 
-interaction = Interaction.new
+interaction = App.new
 interaction.user_input
