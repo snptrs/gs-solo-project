@@ -1,4 +1,5 @@
 require_relative 'menu'
+require_relative 'order'
 
 class App
   def initialize
@@ -16,12 +17,23 @@ class App
     case input
     when "1"
       @menu.show
+    when "2"
+      place_order
+    end
+  end
+  
+  def place_order
+    order = Order.new
+    loop do
+      @menu.show
+      puts "Choose an item from the menu. Just press enter when you're done."
+      selection = gets.chomp
+      binding.irb
+      break if selection == ""
+      order.add(@menu.choose(selection.to_i - 1))
     end
   end
 end
-
-menu = Menu.new
-menu.create
 
 interaction = App.new
 interaction.user_input
