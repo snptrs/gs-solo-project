@@ -4,6 +4,7 @@ require_relative 'menu_item'
 class Menu
   def initialize
     @menu = []
+    load_file
   end
 
   def add_item(description, price)
@@ -22,7 +23,7 @@ class Menu
   def show
     puts "\n===MENU==="
     @menu.each_with_index do |item, i|
-      puts "#{i + 1}. #{item.description} – £#{item.price}"
+      puts "#{i + 1}. #{item.description} – #{sprintf("£%.2f", item.price)}"
     end
     puts "\n"
   end

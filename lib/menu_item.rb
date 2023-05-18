@@ -1,7 +1,7 @@
 class MenuItem
   def initialize(description, price)
     @description = description
-    @price = price
+    @price = price.to_f
   end
 
   def description
