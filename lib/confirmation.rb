@@ -5,7 +5,6 @@ class Confirmation
     @twilio_sid = ENV["TWILIO_SID"]
     @twilio_token = ENV["TWILIO_AUTH_TOKEN"]
     @twilio_number = ENV["TWILIO_PHONE_NUMBER"]
-    @my_number = ENV["MY_PHONE_NUMBER"]
   end
   
   def send(order, phone_number)
