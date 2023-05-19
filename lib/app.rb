@@ -1,6 +1,7 @@
 require_relative 'menu'
 require_relative 'order'
 require_relative 'receipt'
+require_relative 'confirmation'
 
 class App
   def initialize
@@ -13,6 +14,7 @@ class App
       puts "1. See the menu"
       puts "2. Place an order"
       puts "3. View receipt"
+      puts "4. Send order confirmation"
       input = gets.chomp
       break if input == ""
       controller(input)
@@ -27,6 +29,8 @@ class App
       place_order
     when "3"
       view_receipt
+    when "4"
+      send_confirmation  
     end
   end
   
@@ -50,6 +54,14 @@ class App
     end
     puts "GRAND TOTAL: #{sprintf("£%.2f", receipt.total)}"
     puts "\n"
+  end
+
+  def send_confirmation
+    puts "Enter your phone number:"
+    phone_number = gets.chomp
+    confirmation = Confirmation.new
+    confirmation.send(@order, phone_number)
+    puts "\n✅ Order confirmation sent.\n\n"
   end
 end
 
