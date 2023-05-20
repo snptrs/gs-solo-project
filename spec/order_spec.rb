@@ -8,6 +8,7 @@ RSpec.describe Order do
     
     it "has an order ID" do
       order = Order.new
+      # Stubbing - 
       expect(order.order_id).to be_a_kind_of(Integer)
     end
     
